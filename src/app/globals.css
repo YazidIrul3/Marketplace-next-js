@@ -6,6 +6,10 @@ img {
   max-height: 200px;
 }
 
+#image-home-promo {
+  width: 91.666667%;
+}
+
 #detail-card-product {
   width: 500px;
   max-height: 550px;

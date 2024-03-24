@@ -4,7 +4,7 @@ import "@/app/globals.css";
 import Link from "next/link";
 import { useState } from "react";
 
-const Card = ({ product, productPrice }) => {
+const Card = ({ product }) => {
   const productPriceToRupiah = product.price * 16000;
   const price2 = productPriceToRupiah.toString().split("");
   const priceLength = price2.length;
@@ -17,8 +17,6 @@ const Card = ({ product, productPrice }) => {
   }
 
   const price3 = price2.join("");
-
-  const [discountPrice, setDiscountPrice] = useState(price3);
 
   const handleDiscount = () => {
     const discountPrice =

@@ -5,6 +5,10 @@ const nextConfig = {
       {
         hostname: "cdn.dummyjson.com",
       },
+
+      {
+        hostname: "assets.digination.id",
+      },
     ],
   },
 };

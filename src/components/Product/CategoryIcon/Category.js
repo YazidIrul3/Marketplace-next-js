@@ -11,7 +11,7 @@ import Link from "next/link";
 const Category = () => {
   return (
     <div className=" mx-auto">
-      <div className="flex justify-start mx-auto mt-2  w-full">
+      <div className="flex justify-start mx-auto mt-2 w-full">
         <Link href="/productcategory/smartphone">
           <CategoryIcon
             icon={<DeviceMobile size={32} color="#040101" />}

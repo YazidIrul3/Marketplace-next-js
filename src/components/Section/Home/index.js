@@ -1,46 +1,21 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Card from "@/components/Product/Card";
-import { _useApi } from "@/app/libs/axios/get";
 import Loading from "../../Loading";
-import DiscountFilter from "../DiscountAndFilter/Discount.Toogle";
+import { useProducts } from "@/features/product/fetchProducts";
 
 const HomePage = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  const productsAPI = _useApi("products");
-
-  const getProducts = async () => {
-    try {
-      setLoading(false);
-      const products = await productsAPI;
-      // console.log(products);
-      setProducts(products.data.products);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  
-
-  useEffect(() => {
-    getProducts();
-  }, []);
+  const { data, loading } = useProducts("products");
 
   return (
     <section className="flex justify-center">
-        {loading ? <Loading /> : null}
-      <div className="grid place-items-center place-content-between 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 ">
+      {loading ? <Loading /> : null}
 
-        {products.map((product) => {
+      <div className="grid place-items-center place-content-between 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 grid-cols-2 ">
+        {data.products?.map((product) => {
           return (
-            <div
-              key={product.id}
-              className="flex flex-row justify-center mt-3"
-            >
-              <Card product={product}/>
+            <div key={product.id} className="flex flex-row justify-center mt-3">
+              <Card product={product} />
             </div>
           );
         })}
